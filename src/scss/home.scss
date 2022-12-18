@@ -1,0 +1,14 @@
+@import "./variables.scss";
+
+.home {
+    display: flex;
+
+    .home-center {
+        height: 100%;
+        min-width: 500px;
+        margin: 10% auto;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}

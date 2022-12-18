@@ -1,0 +1,17 @@
+@import "./variables.scss";
+
+.button {
+    height: 52px;
+    background-color: rgb(247, 58, 0);
+    color: #fff;
+    width: 100%;
+    border-radius: $border-radius;
+    border: none;
+    cursor: pointer;
+    font-family: $font-albert;
+    font-size: 22px;
+
+    &:hover {
+        background-color: rgba(rgb(247, 58, 0), 0.9);
+    }
+}

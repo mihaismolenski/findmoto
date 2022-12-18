@@ -1,8 +1,11 @@
-import useLoadDataFromJson from "../../hooks/useLoadDataFromJson";
-
 export const Home = () => {
-    const [data] = useLoadDataFromJson();
-    return <div>{data?.length}</div>;
+    
+    return (
+        <div className="home">
+            <div className="home-center">
+               
+            </div>
+        </div>);
 }
 
 export default Home;

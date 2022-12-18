@@ -1,0 +1,22 @@
+@import "./variables.scss";
+
+.header {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+
+    a {
+        text-decoration: none;
+
+        .header-item {
+            font-size: 24px;
+            color: rgb(73, 62, 62);
+
+            &:hover {
+                color: rgba(rgb(73, 62, 62), 0.8);
+            }
+        }
+    }
+}
