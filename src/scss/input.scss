@@ -4,18 +4,19 @@
         box-sizing: border-box;
         border-radius: $border-radius;
         outline: none;
-        border: 1px solid rgb(216, 215, 215);
+        border: 1px solid $light-grey;
         padding: 12px;
         font-size: 20px;
         font-family: $font-albert;
+        box-shadow: 0 0 3px $light-blue;
 
         &:hover {
-            border: 1px solid rgb(184, 184, 184);
+            border: 1px solid $medium-grey;
         }
 
         &:active,
         &:focus {
-            border: 1px solid rgb(3, 6, 145);
+            border: 1px solid $dark-blue;
         }
     }
 }

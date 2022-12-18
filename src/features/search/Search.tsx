@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
+import MotoCard from "../../components/MotoCard";
 import useLoadDataFromJson from "../../hooks/useLoadDataFromJson";
 import { MotorcycleData } from "../../types/motorcycle-data";
 
@@ -23,15 +24,15 @@ export const Search = () => {
 
     return (
         <div className="search">
-            <div className="search-center">
+            <div className="search-form">
                 <Input value={searchValue} handleChange={(value: string) => setSearchValue(value)} />
                 <Button text="Find moto" handleClick={findMoto} />
-                <div>
-                    {filtered.map((m, index) => {
-                        return <div key={index}>{m.make} {m.model}</div>
+            </div>
+                <div className="search-results">
+                    {filtered.slice(0, 30).map((m, index) => {
+                        return <MotoCard key={index} data={m}/>
                     })}
                 </div>
-            </div>
         </div>);
 }
 

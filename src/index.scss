@@ -4,6 +4,7 @@
 @import "./scss/button.scss";
 @import "./scss/header.scss";
 @import "./scss/search.scss";
+@import "./scss/moto-card.scss";
 
 body {
   margin: 0;
@@ -13,6 +14,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: $font-albert !important;
+
+  .app {
+    background: url("../public/background2.jpg") no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+  }
 }
 
 code {
