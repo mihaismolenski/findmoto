@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { MotorcycleData } from "../types/motorcycle-data";
 
-export const useLoadDataFromJson = () => {
-    const [data, setData] = useState<MotorcycleData[]>();
+export const useLoadDataFromJson = (): [MotorcycleData[], string[]] => {
+    const [data, setData] = useState<MotorcycleData[]>([]);
+    const [types, setTypes] = useState<string[]>([]);
 
     const getData = () => {
         fetch('data.json'
@@ -18,10 +19,18 @@ export const useLoadDataFromJson = () => {
     };
     
     useEffect(() => {
-        getData()
-    }, [])
+        getData();
+    }, []);
 
-    return [data];
+    useEffect(() => {
+        let t: {[key:string] : string} = {};
+        data.forEach(m => {
+            t[m.type] = m.type;
+        })
+        setTypes(Object.keys(t));
+    }, [data]);
+
+    return [data, types];
 }
 
 export default useLoadDataFromJson;

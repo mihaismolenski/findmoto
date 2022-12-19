@@ -1,0 +1,27 @@
+@import "./variables.scss";
+
+.type {
+    box-sizing: border-box;
+    height: 60px;
+    padding: 20px;
+    border-radius: $border-radius;
+    cursor: pointer;
+    color: $dark-blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    background: rgba(white, 0.7);
+    transition: all 0.15s ease-in-out;
+
+    &:hover {
+        background-color: white;
+        transition: all 0.15s ease-in-out;
+    }
+
+    &.selected {
+        font-weight: $font-weight-bold;
+        background: white;
+        box-shadow: 0 0 7px white;
+    }
+}
