@@ -6,7 +6,7 @@ import useLoadDataFromJson from "../../hooks/useLoadDataFromJson";
 import { MotorcycleData } from "../../types/motorcycle-data";
 
 export const Search = () => {
-    const [data, types] = useLoadDataFromJson();
+    const [data, ] = useLoadDataFromJson();
     const [searchValue, setSearchValue] = useState("");
     const [filtered, setFiltered] = useState<MotorcycleData[]>([]);
 
