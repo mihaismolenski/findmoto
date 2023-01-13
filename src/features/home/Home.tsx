@@ -1,13 +1,12 @@
 import { useState } from "react";
+import { MotorcycleDataProps } from "../../App";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import MotoCard from "../../components/MotoCard";
 import Type from "../../components/Type";
-import useLoadDataFromJson from "../../hooks/useLoadDataFromJson";
 import { MotorcycleData } from "../../types/motorcycle-data";
 
-export const Home = () => {
-    const [data, types] = useLoadDataFromJson();
+export const Home = ({data, types}: MotorcycleDataProps) => {
     const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
     const [results, setResults] = useState<MotorcycleData[]>([]);
     const [cc, setCc] = useState<string>("");

@@ -1,12 +1,11 @@
 import { useState } from "react";
+import { MotorcycleDataProps } from "../../App";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import MotoCard from "../../components/MotoCard";
-import useLoadDataFromJson from "../../hooks/useLoadDataFromJson";
 import { MotorcycleData } from "../../types/motorcycle-data";
 
-export const Search = () => {
-    const [data, ] = useLoadDataFromJson();
+export const Search = ({data}: MotorcycleDataProps) => {
     const [searchValue, setSearchValue] = useState("");
     const [filtered, setFiltered] = useState<MotorcycleData[]>([]);
 

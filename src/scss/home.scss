@@ -6,12 +6,21 @@
     .home-center {
         margin: 20px auto;
         padding: 20px;
+        width: 100%;
+        
+        @media screen and (max-width: $screen-mobile) {
+           margin: 0;
+        }
 
         .home-types {
             display: grid;
             grid-auto-rows: 1fr;
             grid-template-columns: repeat(6, minmax(auto, 1fr));
             gap: 12px;
+
+            @media screen and (max-width: $screen-mobile) {
+                grid-template-columns: repeat(2, minmax(auto, 1fr));
+            }
         }
 
         .home-search {
@@ -20,6 +29,10 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
+
+            @media screen and (max-width: $screen-mobile) {
+                width: 100%;
+            }
         }
 
         .home-results {
