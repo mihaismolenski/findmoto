@@ -15,7 +15,8 @@
         .home-types {
             display: grid;
             grid-auto-rows: 1fr;
-            grid-template-columns: repeat(6, minmax(auto, 1fr));
+            grid-template-columns: repeat(6, minmax(auto, 265px));
+            justify-content: center;
             gap: 12px;
 
             @media screen and (max-width: $screen-mobile) {
@@ -37,9 +38,11 @@
 
         .home-results {
             display: grid;
+            margin: 0 auto;
             grid-auto-rows: 1fr;
             grid-template-columns: repeat(3, minmax(auto, 1fr));
             gap: 20px;
+            max-width: 1200px;
         }
     }
 }
