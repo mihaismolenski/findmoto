@@ -13,6 +13,7 @@
     font-size: 18px;
     background: rgba(white, 0.7);
     transition: all 0.15s ease-in-out;
+    user-select: none;
 
     @media screen and (max-width: $screen-mobile) {
         height: 50px;
