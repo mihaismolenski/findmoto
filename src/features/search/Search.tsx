@@ -5,7 +5,7 @@ import Input from "../../components/Input";
 import MotoCard from "../../components/MotoCard";
 import { MotorcycleData } from "../../types/motorcycle-data";
 
-export const Search = ({data}: MotorcycleDataProps) => {
+export const Search = ({ data }: MotorcycleDataProps) => {
     const [searchValue, setSearchValue] = useState("");
     const [filtered, setFiltered] = useState<MotorcycleData[]>([]);
 
@@ -24,14 +24,14 @@ export const Search = ({data}: MotorcycleDataProps) => {
     return (
         <div className="search">
             <div className="search-form">
-                <Input value={searchValue} handleChange={(value: string) => setSearchValue(value)} placeholder="Yamaha R6 GYTR"/>
+                <Input value={searchValue} handleChange={(value: string) => setSearchValue(value)} placeholder="Yamaha R6 GYTR" />
                 <Button text="Find moto" handleClick={findMoto} />
             </div>
-                <div className="search-results">
-                    {filtered.slice(0, 30).map((m, index) => {
-                        return <MotoCard key={index} data={m}/>
-                    })}
-                </div>
+            <div className="search-results">
+                {filtered.slice(0, 30).map((m, index) => {
+                    return <MotoCard key={index} data={m} />
+                })}
+            </div>
         </div>);
 }
 

@@ -1,0 +1,20 @@
+@import "./variables.scss";
+
+.aside-modal {
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    right: -95vw;
+    width: 95vw;
+    max-width: 700px;
+    background-color: $light-blue;
+    height: 100vh;
+    z-index: 100;
+    transition: 0.5s;
+    box-sizing: border-box;
+
+    &.active {
+        right: 0 !important;
+
+    }
+}

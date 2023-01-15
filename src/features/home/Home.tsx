@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { MotorcycleDataProps } from "../../App";
+import AsideModal from "../../components/AsideModal";
 import Button from "../../components/Button";
 import DoubleSlider from "../../components/DoubleSlider";
 import MotoCard from "../../components/MotoCard";
+import MotoDetails from "../../components/MotoDetails";
 import Type from "../../components/Type";
 import { MotorcycleData } from "../../types/motorcycle-data";
 
@@ -12,6 +14,8 @@ export const Home = ({ data, types }: MotorcycleDataProps) => {
     const [cc, setCc] = useState<number[]>([400, 800]);
     const [years, setYears] = useState<number[]>([2010, new Date().getFullYear()]);
     const [power, setPower] = useState<number[]>([70, 150]);
+    const [showMotoDetails, setShowMotoDetails] = useState(false);
+    const [selectedMoto, setSelectedMoto] = useState<MotorcycleData>();
 
     const isTypeSelected = (type: string) => {
         return selectedTypes.findIndex(t => t === type) >= 0;
@@ -84,9 +88,12 @@ export const Home = ({ data, types }: MotorcycleDataProps) => {
                     <Button text="Find best bike for me" handleClick={() => search()} />
                 </div>
                 <div className="home-results">{results.slice(0, 6).map((m, index) => {
-                    return <MotoCard key={index} data={m} />
+                    return <MotoCard key={index} data={m} handleClick={() => { setShowMotoDetails(true); setSelectedMoto(m); }} />
                 })}</div>
             </div>
+            <AsideModal visible={showMotoDetails} handleClose={() => setShowMotoDetails(false)}>
+                {selectedMoto && <MotoDetails data={selectedMoto} handleClose={() => setShowMotoDetails(false)} />}
+            </AsideModal>
         </div>);
 }
 

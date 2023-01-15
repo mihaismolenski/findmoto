@@ -1,0 +1,21 @@
+@import "./variables.scss";
+
+.moto-details {
+    .moto-details-title {
+        text-align: center;
+        margin-top: 20px;
+        color: $black;
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+
+    .moto-details-spec {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: $black;
+        font-size: 18px;
+        line-height: 28px;
+    }
+}
