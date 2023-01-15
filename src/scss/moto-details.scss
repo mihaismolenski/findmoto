@@ -12,10 +12,36 @@
 
     .moto-details-spec {
         display: flex;
-        align-items: center;
         gap: 10px;
         color: $black;
         font-size: 18px;
-        line-height: 28px;
+        line-height: 24px;
+
+        @media screen and (max-width: $screen-mobile) {
+            font-size: 14px;
+            line-height: 18px;
+        }
+    }
+
+    .moto-details-box {
+        margin: 20px 0;
+        padding: 10px;
+        border: 1px solid $medium-grey;
+        border-radius: $border-radius;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .moto-details-label {
+        margin-top: 1rem;
+        font-size: 24px;
+        font-weight: 600;
+        color: $black;
+        padding: 0 10px;
+
+        @media screen and (max-width: $screen-mobile) {
+            font-size: 18px;
+        }
     }
 }

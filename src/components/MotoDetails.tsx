@@ -9,15 +9,111 @@ export interface MotoDetailsProps {
 }
 
 export const MotoDetails = ({ data, handleClose }: MotoDetailsProps) => {
-    const { make, model, year, displacement, power, type } = data;
+    const {
+        make,
+        model,
+        year,
+        displacement,
+        power,
+        type,
+        total_weight,
+        seat_height,
+        total_height,
+        total_length,
+        total_width,
+        ground_clearance,
+        wheelbase,
+        gearbox,
+        transmission,
+        clutch,
+        starter,
+        fuel_capacity,
+        frame,
+        front_suspension,
+        front_wheel_travel,
+        rear_suspension,
+        rear_wheel_travel,
+        front_tire,
+        rear_tire,
+        front_brakes,
+        rear_brakes,
+        engine,
+        torque,
+        compression,
+        bore_stroke,
+        valves_per_cylinder,
+        fuel_system,
+        fuel_control,
+        ignition,
+        lubrication,
+        cooling,
+        fuel_consumption,
+        emission } = data;
 
     return <div className="moto-details">
         <Button text="Back" handleClick={handleClose} height="42px" />
         <div className="moto-details-title">{make} {model}</div>
-        <div className="moto-details-spec"><img src="../motorbike.png" width="24px" height="24px" alt="engine" /> {getTypeName(type)}</div>
-        <div className="moto-details-spec"><img src="../calendar.png" width="24px" height="24px" alt="engine" /> {year}</div>
-        <div className="moto-details-spec"><img src="../engine.png" width="24px" height="24px" alt="engine" /> {displacement}</div>
-        <div className="moto-details-spec"><img src="../horse-power.png" width="24px" height="24px" alt="engine" /> {power}</div>
+
+        <fieldset className="moto-details-box">
+            <legend className="moto-details-label">General</legend>
+            {year && <div className="moto-details-spec"><img src="../calendar.png" width="24px" height="24px" alt="engine" /><b>Year:</b> {year}</div>}
+            {type && <div className="moto-details-spec"><img src="../motorbike.png" width="24px" height="24px" alt="engine" /> <b>Type:</b>{getTypeName(type)}</div>}
+            {frame && <div className="moto-details-spec"><img src="../transmission.png" width="24px" height="24px" alt="engine" /> <b>Frame:</b> {frame}</div>}
+            {fuel_consumption && <div className="moto-details-spec"><img src="../transmission.png" width="24px" height="24px" alt="engine" /> <b>Fuel consumption:</b> {fuel_consumption}</div>}
+            {emission && <div className="moto-details-spec"><img src="../transmission.png" width="24px" height="24px" alt="engine" /> <b>Emission:</b> {emission}</div>}
+            {fuel_capacity && <div className="moto-details-spec"><img src="../transmission.png" width="24px" height="24px" alt="engine" /> <b>Fuel capacity:</b> {fuel_capacity}</div>}
+            {starter && <div className="moto-details-spec"><img src="../gearbox.png" width="24px" height="24px" alt="engine" /> <b>Starter:</b> {starter}</div>}
+        </fieldset>
+
+
+        <fieldset className="moto-details-box">
+            <legend className="moto-details-label">Engine</legend>
+            {engine && <div className="moto-details-spec"><img src="../engine.png" width="24px" height="24px" alt="engine" /><b>Engine:</b> {engine}</div>}
+            {displacement && <div className="moto-details-spec"><img src="../engine.png" width="24px" height="24px" alt="engine" /><b>Displacement:</b> {displacement}</div>}
+            {power && <div className="moto-details-spec"><img src="../horse-power.png" width="24px" height="24px" alt="engine" /><b>Power:</b> {power}</div>}
+            {torque && <div className="moto-details-spec"><img src="../horse-power.png" width="24px" height="24px" alt="engine" /><b>Torque:</b> {torque}</div>}
+            {valves_per_cylinder && <div className="moto-details-spec"><img src="../horse-power.png" width="24px" height="24px" alt="engine" /><b>Valves per cylinder:</b> {valves_per_cylinder}</div>}
+            {fuel_system && <div className="moto-details-spec"><img src="../horse-power.png" width="24px" height="24px" alt="engine" /><b>Fuel system:</b> {fuel_system}</div>}
+            {fuel_control && <div className="moto-details-spec"><img src="../horse-power.png" width="24px" height="24px" alt="engine" /><b>Fuel control:</b> {fuel_control}</div>}
+            {ignition && <div className="moto-details-spec"><img src="../horse-power.png" width="24px" height="24px" alt="engine" /><b>Ignition:</b> {ignition}</div>}
+            {lubrication && <div className="moto-details-spec"><img src="../horse-power.png" width="24px" height="24px" alt="engine" /><b>Lubrication:</b> {lubrication}</div>}
+            {cooling && <div className="moto-details-spec"><img src="../horse-power.png" width="24px" height="24px" alt="engine" /><b>Cooling:</b> {cooling}</div>}
+            {bore_stroke && <div className="moto-details-spec"><img src="../horse-power.png" width="24px" height="24px" alt="engine" /><b>Bore stroke:</b> {bore_stroke}</div>}
+            {compression && <div className="moto-details-spec"><img src="../horse-power.png" width="24px" height="24px" alt="engine" /><b>Compression stroke:</b> {compression}</div>}
+        </fieldset>
+
+        <fieldset className="moto-details-box">
+            <legend className="moto-details-label">Transmission</legend>
+            {gearbox && <div className="moto-details-spec"><img src="../gearbox.png" width="24px" height="24px" alt="engine" /> <b>Gearbox:</b> {gearbox}</div>}
+            {transmission && <div className="moto-details-spec"><img src="../transmission.png" width="24px" height="24px" alt="engine" /> <b>Transmission:</b> {transmission}</div>}
+            {clutch && <div className="moto-details-spec"><img src="../clutch.png" width="24px" height="24px" alt="engine" /> <b>Clutch:</b> {clutch}</div>}
+        </fieldset>
+
+        <fieldset className="moto-details-box">
+            <legend className="moto-details-label">Wheels, Brakes & Suspension</legend>
+            {front_tire && <div className="moto-details-spec"><img src="../gearbox.png" width="24px" height="24px" alt="engine" /> <b>Front tire:</b> {front_tire}</div>}
+            {rear_tire && <div className="moto-details-spec"><img src="../gearbox.png" width="24px" height="24px" alt="engine" /> <b>Rear_tire:</b> {rear_tire}</div>}
+            {front_wheel_travel && <div className="moto-details-spec"><img src="../gearbox.png" width="24px" height="24px" alt="engine" /> <b>Front wheel travel:</b> {front_wheel_travel}</div>}
+            {rear_wheel_travel && <div className="moto-details-spec"><img src="../gearbox.png" width="24px" height="24px" alt="engine" /> <b>Rear wheel travel:</b> {rear_wheel_travel}</div>}
+            {front_brakes && <div className="moto-details-spec"><img src="../gearbox.png" width="24px" height="24px" alt="engine" /> <b>Front brakes:</b> {front_brakes}</div>}
+            {rear_brakes && <div className="moto-details-spec"><img src="../gearbox.png" width="24px" height="24px" alt="engine" /> <b>Rear brakes:</b> {rear_brakes}</div>}
+            {front_suspension && <div className="moto-details-spec"><img src="../gearbox.png" width="24px" height="24px" alt="engine" /> <b>Front suspension:</b> {front_suspension}</div>}
+            {rear_suspension && <div className="moto-details-spec"><img src="../gearbox.png" width="24px" height="24px" alt="engine" /> <b>Rear suspension:</b> {rear_suspension}</div>}
+
+        </fieldset>
+
+        <fieldset className="moto-details-box">
+            <legend className="moto-details-label">Size</legend>
+            {total_weight && <div className="moto-details-spec"><img src="../weight.png" width="24px" height="24px" alt="engine" /> <b>Weight:</b> {total_weight}</div>}
+            {seat_height && <div className="moto-details-spec"><img src="../seat.png" width="24px" height="24px" alt="engine" /> <b>Seat height:</b> {seat_height}</div>}
+            {total_height && <div className="moto-details-spec"><img src="../height.png" width="24px" height="24px" alt="engine" /> <b>Height:</b> {total_height}</div>}
+            {total_length && <div className="moto-details-spec"><img src="../length.png" width="24px" height="24px" alt="engine" /> <b>Length:</b> {total_length}</div>}
+            {total_width && <div className="moto-details-spec"><img src="../width.png" width="24px" height="24px" alt="engine" /> <b>Width:</b> {total_width}</div>}
+            {ground_clearance && <div className="moto-details-spec"><img src="../ground_clearance.png" width="24px" height="24px" alt="engine" /> <b>Ground clearance:</b> {ground_clearance}</div>}
+            {wheelbase && <div className="moto-details-spec"><img src="../wheelbase.png" width="24px" height="24px" alt="engine" /> <b>Wheelbase:</b> {wheelbase}</div>}
+        </fieldset>
+
+
         <YoutubeVideos search={`${make} ${model} ${year}`} count={2} />
     </div>
 }

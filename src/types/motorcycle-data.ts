@@ -36,4 +36,6 @@ export interface MotorcycleData {
     wheelbase: string;
     fuel_capacity: string;
     starter: string;
+    fuel_consumption: string;
+    emission: string;
 }
