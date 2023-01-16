@@ -20,7 +20,7 @@ body {
   font-family: $font-albert !important;
 
   .app {
-    background: url("../public/background2.jpg") no-repeat;
+    background: url("../public/images/background2.jpg") no-repeat;
     background-size: cover;
     min-height: 100vh;
   }
@@ -32,7 +32,7 @@ code {
 
 /* width */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 
 /* Track */

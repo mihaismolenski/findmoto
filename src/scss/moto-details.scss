@@ -20,6 +20,11 @@
         @media screen and (max-width: $screen-mobile) {
             font-size: 14px;
             line-height: 18px;
+
+            img {
+                width: 16px;
+                height: 16px;
+            }
         }
     }
 
@@ -31,6 +36,15 @@
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
+
+        ul {
+            margin: 0;
+            padding: 0 0 0 1.5rem;
+
+            li {
+                display: list-item;
+            }
+        }
     }
 
     .moto-details-label {
@@ -39,6 +53,9 @@
         font-weight: 600;
         color: $black;
         padding: 0 10px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
 
         @media screen and (max-width: $screen-mobile) {
             font-size: 18px;

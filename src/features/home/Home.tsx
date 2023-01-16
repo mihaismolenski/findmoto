@@ -7,6 +7,7 @@ import MotoCard from "../../components/MotoCard";
 import MotoDetails from "../../components/MotoDetails";
 import Type from "../../components/Type";
 import { MotorcycleData } from "../../types/motorcycle-data";
+import { shuffle } from "../../utils/utils";
 
 export const Home = ({ data, types }: MotorcycleDataProps) => {
     const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
@@ -48,28 +49,10 @@ export const Home = ({ data, types }: MotorcycleDataProps) => {
             r = r.filter(moto => selectedTypes.findIndex((t: string) => t === moto.type) >= 0);
         }
         r = r.filter(moto => getCcForMoto(moto.displacement) >= cc[0] && getCcForMoto(moto.displacement) <= cc[1]);
-        r = r.filter(moto => getPowerForMoto(moto.power) >= power[0] && getPowerForMoto(moto.power) <= power[1]);
+        r = r.filter(moto => (getPowerForMoto(moto.power) >= power[0] && getPowerForMoto(moto.power) <= power[1]) || !moto.power);
         r = r.filter(moto => Number(moto.year) >= years[0] && Number(moto.year) <= years[1]);
 
         setResults(r);
-    }
-
-    const shuffle = (array: MotorcycleData[]) => {
-        let currentIndex = array.length, randomIndex;
-
-        // While there remain elements to shuffle.
-        while (currentIndex !== 0) {
-
-            // Pick a remaining element.
-            randomIndex = Math.floor(Math.random() * currentIndex);
-            currentIndex--;
-
-            // And swap it with the current element.
-            [array[currentIndex], array[randomIndex]] = [
-                array[randomIndex], array[currentIndex]];
-        }
-
-        return array;
     }
 
 
