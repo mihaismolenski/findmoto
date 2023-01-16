@@ -8,6 +8,10 @@
         font-size: 28px;
         font-weight: 700;
         margin-bottom: 20px;
+
+        @media screen and (max-width: $screen-mobile) {
+            font-size: 20px;
+        }
     }
 
     .moto-details-spec {

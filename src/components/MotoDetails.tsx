@@ -1,6 +1,7 @@
 import { MotorcycleData } from "../types/motorcycle-data";
 import { getTypeName } from "../utils/utils";
 import Button from "./Button";
+import Images from "./Images";
 import { YoutubeVideos } from "./YoutubeVideos";
 
 export interface MotoDetailsProps {
@@ -113,7 +114,7 @@ export const MotoDetails = ({ data, handleClose }: MotoDetailsProps) => {
             {wheelbase && <div className="moto-details-spec"><img src="../images/wheelbase.png" width="24px" height="24px" alt="engine" /> <b>Wheelbase:</b> {wheelbase}</div>}
         </fieldset>
 
-
+        <Images count={2} search={`${make} ${model} ${year}`} />
         <YoutubeVideos search={`${make} ${model} ${year}`} count={2} />
     </div>
 }
