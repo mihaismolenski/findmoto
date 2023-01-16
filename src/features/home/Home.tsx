@@ -14,7 +14,7 @@ export const Home = ({ data, types }: MotorcycleDataProps) => {
     const [results, setResults] = useState<MotorcycleData[]>([]);
     const [cc, setCc] = useState<number[]>([400, 800]);
     const [years, setYears] = useState<number[]>([2010, new Date().getFullYear()]);
-    const [power, setPower] = useState<number[]>([70, 150]);
+    const [power, setPower] = useState<number[]>([50, 120]);
     const [showMotoDetails, setShowMotoDetails] = useState(false);
     const [selectedMoto, setSelectedMoto] = useState<MotorcycleData>();
 

@@ -3,6 +3,8 @@ import { MotorcycleData } from "../types/motorcycle-data";
 export const getTypeName = (type: string) => {
     switch (type) {
         case "Allround": return "Adventure";
+        case "Unspecified category": return "Other";
+        case "Prototype / concept model": return "Prototype / concept";
         default: return type;
     }
 }

@@ -27,7 +27,7 @@ export const useLoadDataFromJson = (): [MotorcycleData[], string[]] => {
         data.forEach(m => {
             t[m.type] = m.type;
         })
-        setTypes(Object.keys(t));
+        setTypes(Object.keys(t).sort((l, r) => l > r ? 1 : -1));
     }, [data]);
 
     return [data, types];

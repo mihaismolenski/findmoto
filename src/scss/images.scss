@@ -3,4 +3,14 @@
     display: flex;
     gap: 20px;
     overflow: hidden;
+
+    @media screen and (max-width: $screen-mobile) {
+        flex-direction: column;
+        gap: 10px;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
 }
