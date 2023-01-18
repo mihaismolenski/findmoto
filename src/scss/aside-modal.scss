@@ -1,5 +1,24 @@
 @import "./variables.scss";
 
+.aside-modal-background {
+    width: auto;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 99;
+
+    &.visible {
+        visibility: visible;
+    }
+
+    &.hidden {
+        visibility: hidden;
+    }
+}
+
 .aside-modal {
     padding: 20px;
     position: fixed;
@@ -13,7 +32,6 @@
     transition: 0.5s;
     box-sizing: border-box;
     overflow-y: auto;
-
 
     @media screen and (max-width: $screen-mobile) {
         padding: 1rem;
