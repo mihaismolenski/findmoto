@@ -41,6 +41,7 @@ export const Images = ({ search, count }: ImagesProps) => {
         {images.slice(0, count).map((img, index) => {
             return <img src={img} width="auto" height="150px" alt="moto" key={index} onError={() => setShowImages(showImages.splice(index, 1, false))} style={{ display: showImages[index] ? "unset" : "none" }} />;
         })}
+        {images.length === 0 && <div>No images found.</div>}
     </div>
 }
 

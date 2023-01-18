@@ -27,7 +27,7 @@ export const YoutubeVideos = ({ search, count }: YoutubeVideosProps) => {
         {youtubeVideos && youtubeVideos.map((yt, index) => {
             return <YouTube videoId={yt.id.videoId} opts={opts} key={index} />;
         })}
-
+        {!youtubeVideos && <div>No reviews found.</div>}
     </div>;
 }
 

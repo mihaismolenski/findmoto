@@ -114,8 +114,17 @@ export const MotoDetails = ({ data, handleClose }: MotoDetailsProps) => {
             {wheelbase && <div className="moto-details-spec"><img src="../images/wheelbase.png" width="24px" height="24px" alt="engine" /> <b>Wheelbase:</b> {wheelbase}</div>}
         </fieldset>
 
-        <Images count={2} search={`${make} ${model} ${year}`} />
-        <YoutubeVideos search={`${make} ${model} ${year}`} count={2} />
+        <fieldset className="moto-details-box">
+            <legend className="moto-details-label">Gallery </legend>
+            <Images count={2} search={`${make} ${model} ${year}`} />
+        </fieldset>
+
+        <fieldset className="moto-details-box">
+            <legend className="moto-details-label">Video Reviews </legend>
+            <YoutubeVideos search={`${make} ${model} ${year}`} count={2} />
+        </fieldset>
+
+      
     </div>
 }
 
