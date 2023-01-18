@@ -6,23 +6,41 @@
     padding: 1rem 1.5rem;
     margin-top: auto;
 
+    @media screen and (max-width: $screen-mobile) {
+        padding: 1rem 0.75rem;
+    }
+
     .footer-copyright {
         font-size: 14px;
         color: $white;
+        text-align: center;
+
+        @media screen and (max-width: $screen-mobile) {
+            font-size: 12px;
+        }
     }
 
-    a {
-        font-size: 14px;
-        text-decoration: none;
-        color: $white;
-        font-weight: $font-weight-semibold;
+    .footer-links {
         display: flex;
-        align-items: center;
-        gap: 10px;
+        gap: 1rem;
 
-        &:hover {
-            color: $light-blue;
+        a {
+            font-size: 14px;
+            text-decoration: none;
+            color: $white;
+            font-weight: $font-weight-semibold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-align: center;
+
+            &:hover {
+                color: $light-blue;
+            }
+
+            @media screen and (max-width: $screen-mobile) {
+                font-size: 12px;
+            }
         }
-
     }
 }

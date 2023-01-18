@@ -8,6 +8,8 @@ import useLoadDataFromJson from './hooks/useLoadDataFromJson';
 import { MotorcycleData } from './types/motorcycle-data';
 import ContactUs from './features/contact-us/ContactUs';
 import Footer from './features/footer/Footer';
+import Terms from './features/terms/terms';
+import PrivacyPolicy from './features/privacy/privacy';
 
 export interface MotorcycleDataProps {
   data: MotorcycleData[];
@@ -27,6 +29,8 @@ export const App = () => {
           <Route path="/compare" element={<Compare data={data} types={types} />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Routes>
         <Footer />
       </BrowserRouter>

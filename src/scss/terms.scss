@@ -1,0 +1,40 @@
+@import "./variables.scss";
+
+.terms {
+    display: grid;
+    margin: 0 auto;
+    max-width: 1200px;
+    color: $white;
+    padding: 1rem;
+
+    .terms-title {
+        font-size: 32px;
+        @media screen and (max-width: $screen-mobile) {
+            font-size: 20px;
+        }
+    }
+
+    .last-updated {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        margin-bottom: 0;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 24px;
+
+        a {
+            color: $white;
+            font-weight: $font-weight-semibold;
+            text-decoration: none;
+            
+            &:hover {
+                color: $light-blue;
+            }
+        }
+    }
+}
