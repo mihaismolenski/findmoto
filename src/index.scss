@@ -11,6 +11,8 @@
 @import "./scss/moto-details.scss";
 @import "./scss/youtube-videos.scss";
 @import "./scss/images.scss";
+@import "./scss/contact-us.scss";
+@import "./scss/footer.scss";
 
 body {
   margin: 0;
@@ -24,6 +26,8 @@ body {
     background: url("../public/images/background2.jpg") no-repeat;
     background-size: cover;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
 }
 

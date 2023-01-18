@@ -1,0 +1,28 @@
+@import "./variables.scss";
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    margin-top: auto;
+
+    .footer-copyright {
+        font-size: 14px;
+        color: $white;
+    }
+
+    a {
+        font-size: 14px;
+        text-decoration: none;
+        color: $white;
+        font-weight: $font-weight-semibold;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        &:hover {
+            color: $light-blue;
+        }
+
+    }
+}
