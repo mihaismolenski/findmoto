@@ -1,0 +1,25 @@
+@import "./variables.scss";
+
+.compare {
+    padding: 20px;
+    display: flex;
+    margin: 20px auto 0 auto;
+    max-width: 1200px;
+
+    @media screen and (max-width: $screen-mobile) {
+        margin: 0;
+        padding: 15px;
+        max-width: 100%;
+    }
+
+    .compare-form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 600px;
+
+        @media screen and (max-width: $screen-mobile) {
+            width: 100%;
+        }
+    }
+}

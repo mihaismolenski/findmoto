@@ -19,7 +19,7 @@ export const Images = ({ search, count }: ImagesProps) => {
 
     useEffect(() => {
         setImages([]);
-        const url = `https://www.googleapis.com/customsearch/v1?key=AIzaSyBqLE1FahERvruoWOvZgGIX-e0w5I-dA9U&cx=5299f5c9a1ea1470b&q=${search}`;
+        const url = `https://www.googleapis.com/customsearch/v1?key=AIzaSyBqLE1FahERvruoWOvZgGIX-e0w5I-dA9U&cx=5299f5c9a1ea1470b&q=${search} price`;
         fetch(url)
             .then(response => response.json())
             .then((response: GoogleSearchApiResponse) => {

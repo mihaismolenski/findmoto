@@ -1,0 +1,31 @@
+@import "./variables.scss";
+
+.search-input {
+    position: relative;
+
+    .search-input-results {
+        position: absolute;
+        background: $white;
+        border-radius: $border-radius;
+        padding: 5px;
+        box-shadow: 0 0 10px $white;
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 5px;
+        max-height: 500px;
+        overflow-y: auto;
+
+        .search-input-results-row {
+            height: 40px;
+            color: $black;
+            cursor: pointer;
+            padding: 10px;
+            box-sizing: border-box;
+            font-weight: $font-weight-regular;
+
+            &:hover {
+                background-color: $light-blue;
+            }
+        }
+    }
+}
