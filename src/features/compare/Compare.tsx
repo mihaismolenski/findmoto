@@ -39,33 +39,25 @@ export const Compare = ({ data, types }: MotorcycleDataProps) => {
         <div className="compare-table-overflow">
           <table className="compare-table">
             <thead>
-              <tr>
-                <td></td>
-                {compareItems.map((m, index) => {
-                  return (
-                    <td key={`header-${index}`}>
-                      {m.make} {m.make} {m.year}
-                    </td>
-                  );
-                })}
-              </tr>
+              <CompareRow
+                label=" "
+                values={compareItems.map(
+                  (m) => `${m.make} ${m.make} ${m.year}`
+                )}
+              />
             </thead>
             <tbody>
-              <tr>
-                <td>Year</td>
-                {compareItems.map((m, index) => {
-                  return <td key={`body-${index}`}>{m.year}</td>;
-                })}
-              </tr>
-              <tr>
-                <td>Engine</td>
-                {compareItems.map((m, index) => {
-                  return <td key={`body-${index}`}>{m.engine}</td>;
-                })}
-              </tr>
+              <CompareRow
+                label="Year"
+                values={compareItems.map((m) => m.year)}
+              />
+              <CompareRow
+                label="Engine"
+                values={compareItems.map((m) => m.engine)}
+              />
               <CompareRow
                 label="Displacement"
-                values={compareItems.map((m) => m.displacement || "-")}
+                values={compareItems.map((m) => m.displacement)}
               />
             </tbody>
           </table>

@@ -35,20 +35,20 @@
 
     .compare-table-overflow {
         overflow-x: auto;
+        margin-top: 30px;
+        box-shadow: 0 0 25px $dark-blue;
+        border-radius: $border-radius;
     }
 
     .compare-table {
         width: 100%;
-        margin-top: 30px;
         background-color: rgba($light-blue, 0.8);
-        border-radius: $border-radius;
-        box-shadow: 0 0 25px $dark-blue;
         border-collapse: collapse;
         color: $black;
         font-weight: $font-weight-regular;
 
         @media screen and (max-width: $screen-mobile) {
-           font-size: 14px;
+            font-size: 14px;
         }
 
         tbody tr:nth-child(odd) {

@@ -6,7 +6,7 @@ export interface CompareRowProps {
 export const CompareRow = ({ label, values }: CompareRowProps) => {
   return (
     <tr>
-      <td>{label}</td>
+      <td>{label || "-"}</td>
       {values.map((v, index) => {
         return <td key={`body-${index}`}>{v}</td>;
       })}
