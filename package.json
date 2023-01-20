@@ -23,6 +23,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:prod": "set \"GENERATE_SOURCEMAP=false\" && npm run build --prod",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
