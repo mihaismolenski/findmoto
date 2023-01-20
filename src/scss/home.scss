@@ -9,6 +9,7 @@
         
         @media screen and (max-width: $screen-mobile) {
            margin: 0;
+           padding: 15px;
         }
 
         .home-types {
@@ -28,7 +29,7 @@
         }
 
         .home-search {
-            width: 500px;
+            width: 650px;
             margin: 30px auto;
             display: flex;
             flex-direction: column;

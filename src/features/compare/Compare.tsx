@@ -74,12 +74,12 @@ export const Compare = ({ data }: MotorcycleDataProps) => {
               <CompareRow
                 label="Engine"
                 values={compareItems.map((m) => m.engine)}
-                icon="../images/engine.png"
+                icon="../images/engine_cc.png"
               />
               <CompareRow
                 label="Displacement"
                 values={compareItems.map((m) => m.displacement)}
-                icon="../images/displacement.png"
+                icon="../images/engine.png"
               />
               <CompareRow
                 label="Power"

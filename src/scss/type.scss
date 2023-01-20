@@ -2,7 +2,7 @@
 
 .type {
     box-sizing: border-box;
-    height: 60px;
+    height: 56px;
     padding: 20px;
     border-radius: $border-radius;
     cursor: pointer;
@@ -14,9 +14,10 @@
     background: rgba(white, 0.7);
     transition: all 0.15s ease-in-out;
     user-select: none;
+    text-align: center;
 
     @media screen and (max-width: $screen-mobile) {
-        height: 50px;
+        height: 48px;
         font-size: 16px;
         padding: 16px;
     }

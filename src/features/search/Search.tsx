@@ -30,7 +30,7 @@ export const Search = ({ data }: MotorcycleDataProps) => {
     return (
         <div className="search">
             <div className="search-form">
-                <Input value={searchValue} handleChange={(value: string) => setSearchValue(value)} placeholder="Yamaha R6 GYTR" />
+                <Input value={searchValue} handleChange={(value: string) => setSearchValue(value)} placeholder="Yamaha R6..." />
                 <Button text="Find moto" handleClick={findMoto} />
             </div>
             <div className="search-results">

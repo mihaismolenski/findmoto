@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useHandleClickOutside } from "../hooks/useHandleClickOutside";
 import { MotorcycleData } from "../types/motorcycle-data";
 import Input from "./Input";
 
@@ -13,10 +14,14 @@ export const SearchInput = ({
   const [showResults, setShowResults] = useState(false);
   const [filtered, setFiltered] = useState<MotorcycleData[]>([]);
   const [data, setData] = useState<MotorcycleData[]>(initialData);
+  const ref = useRef(null);
+
 
   useEffect(() => {
     setData(initialData);
   }, [initialData]);
+
+  useHandleClickOutside(ref, () => setShowResults(false));
 
   const filterData = (value: string) => {
     setSearchValue(value);
@@ -51,11 +56,11 @@ export const SearchInput = ({
   };
 
   return (
-    <div className="search-input">
+    <div className="search-input" ref={ref}>
       <Input
         value={searchValue}
         handleChange={filterData}
-        placeholder="Yamaha R6 GYTR..."
+        placeholder="Kawasaki Versys..."
         onFocus={() => setShowResults(true)}
       />
       {showResults && searchValue && searchValue.length > 2 && filtered.length > 0 && (
