@@ -4,7 +4,7 @@
     padding: 20px;
     width: 100%;
     margin: 20px auto 0 auto;
-    max-width: 1200px;
+    max-width: 1240px;
     box-sizing: border-box;
 
     @media screen and (max-width: $screen-mobile) {
@@ -30,6 +30,26 @@
             gap: 0.5rem;
             font-weight: $font-weight-semibold;
             color: $white;
+
+            .compare-form-selected-item {
+                width: fit-content;
+                padding: 5px 10px;
+                border-radius: $border-radius;
+                background-color: rgba($light-blue, 0.5);
+                box-shadow: 0 0 5px $dark-blue;
+                cursor: pointer;
+                overflow: hidden;
+
+                &:hover {
+                    background-color: rgba($light-blue, 0.8);
+                }
+
+                .remove-icon {
+                    margin-left: 10px;
+                    color: $orange;
+
+                }
+            }
         }
     }
 
@@ -71,8 +91,19 @@
             td {
                 &:first-child {
                     font-weight: $font-weight-bold;
+                    min-width: 170px;
+                }
+                &:not(:first-child) {
+                    min-width: 240px;
+                    border-left: 1px solid rgba($dark-blue, 0.1);
                 }
             }
+        }
+
+        .compare-row-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
     }
 }
