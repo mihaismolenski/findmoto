@@ -30,6 +30,8 @@ export const Images = ({ search, count }: ImagesProps) => {
                         && !path.includes("static.kbb.com")
                         && !path?.includes("cdn.cycletrader.com")
                         && !path.includes("cdn.atvtrader.com")
+                        && !path.includes("cdn.jdpower.com")
+                        && !path.includes("ebaystatic")
                         && !path.includes("ilmberger-carbon.de")));
                 setShowImages(Array(response.items.length).fill(true));
             });

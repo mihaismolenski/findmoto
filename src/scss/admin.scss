@@ -1,0 +1,13 @@
+@import "./variables.scss";
+
+.admin {
+    padding: 20px;
+    
+    .admin-form {
+        max-width: 500px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin: 0 auto;
+    }
+}

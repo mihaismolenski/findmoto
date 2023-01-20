@@ -5,6 +5,7 @@ export const Input = ({
   placeholder,
   onBlur,
   onFocus,
+  type = "text",
 }: {
   width?: string;
   value: string;
@@ -12,10 +13,12 @@ export const Input = ({
   placeholder?: string;
   onBlur?: Function;
   onFocus?: Function;
+  type?: string;
 }) => {
   return (
     <div className="input">
       <input
+        type={type}
         style={{ width }}
         value={value}
         onChange={(e) => handleChange(e.target.value)}
