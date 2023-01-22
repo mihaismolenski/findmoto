@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { MotorcycleDataProps } from "../../App";
 import Button from "../../components/Button";
 import SearchInput from "../../components/SearchInput";
@@ -10,9 +10,9 @@ export const Compare = ({ data }: MotorcycleDataProps) => {
   const [selected, setSelected] = useState<MotorcycleData[]>([]);
   const [compareItems, setCompareItems] = useState<MotorcycleData[]>([]);
 
-  const compare = () => {
+  const compare = useCallback(() => {
     setCompareItems(selected);
-  };
+  }, [selected]);
 
   const removeFromSelected = (m: MotorcycleData) => {
     setSelected(
@@ -21,6 +21,16 @@ export const Compare = ({ data }: MotorcycleDataProps) => {
       )
     );
   };
+
+  useEffect(() => {
+    const handleEnterKeyPress = (e: KeyboardEvent) => {
+      if (e.key === "Enter") {
+        compare();
+      }
+    };
+    window.addEventListener("keypress", handleEnterKeyPress);
+    return () => window.removeEventListener("keypress", handleEnterKeyPress);
+  }, [compare]);
 
   return (
     <div className="compare">

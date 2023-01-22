@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { MotorcycleDataProps } from "../../App";
 import AsideModal from "../../components/AsideModal";
 import Button from "../../components/Button";
@@ -42,7 +42,7 @@ export const Home = ({ data, types }: MotorcycleDataProps) => {
         return power ? Number(power.split("HP")[0].trim()) : 0;
     }
 
-    const search = () => {
+    const search = useCallback(() => {
         let r: MotorcycleData[] = shuffle([...data]);
 
         if (selectedTypes.length > 0) {
@@ -53,8 +53,17 @@ export const Home = ({ data, types }: MotorcycleDataProps) => {
         r = r.filter(moto => Number(moto.year) >= years[0] && Number(moto.year) <= years[1]);
 
         setResults(r);
-    }
+    }, [cc, power, data, selectedTypes, years]);
 
+    useEffect(() => {
+        const handleEnterKeyPress = (e: KeyboardEvent) => {
+          if (e.key === "Enter") {
+            search();
+          }
+        };
+        window.addEventListener("keypress", handleEnterKeyPress);
+        return () => window.removeEventListener("keypress", handleEnterKeyPress);
+      }, [search]);
 
     return (
         <div className="home">

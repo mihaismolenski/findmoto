@@ -16,7 +16,6 @@ export const SearchInput = ({
   const [data, setData] = useState<MotorcycleData[]>(initialData);
   const ref = useRef(null);
 
-
   useEffect(() => {
     setData(initialData);
   }, [initialData]);
@@ -63,7 +62,7 @@ export const SearchInput = ({
         placeholder="Kawasaki Versys..."
         onFocus={() => setShowResults(true)}
       />
-      {showResults && searchValue && searchValue.length > 2 && filtered.length > 0 && (
+      {showResults && searchValue && searchValue.length >= 2 && filtered.length > 0 && (
         <div className="search-input-results">
           {filtered.map((f, index) => {
             return (
