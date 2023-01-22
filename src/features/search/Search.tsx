@@ -6,7 +6,7 @@ import Input from "../../components/Input";
 import MotoCard from "../../components/MotoCard";
 import MotoDetails from "../../components/MotoDetails";
 import { MotorcycleData } from "../../types/motorcycle-data";
-import { shuffle } from "../../utils/utils";
+const {search} = require("fast-fuzzy");
 
 export const Search = ({ data }: MotorcycleDataProps) => {
   const [searchValue, setSearchValue] = useState("");
@@ -19,22 +19,8 @@ export const Search = ({ data }: MotorcycleDataProps) => {
     const sanitizedSearchValue = searchValue.trim().toLowerCase();
     if (!sanitizedSearchValue) return;
 
-    setFiltered(
-      shuffle(
-        data.filter(
-          (m) =>
-            (sanitizedSearchValue.includes(m.make.trim().toLowerCase()) &&
-              sanitizedSearchValue.includes(m.model.trim().toLowerCase())) ||
-            m.model.trim().toLowerCase().includes(sanitizedSearchValue) ||
-            `${m.make.trim().toLowerCase()} ${m.model
-              .trim()
-              .toLowerCase()}`.includes(sanitizedSearchValue) ||
-            `${m.model.trim().toLowerCase()} ${m.make
-              .trim()
-              .toLowerCase()}`.includes(sanitizedSearchValue)
-        ) || []
-      )
-    );
+    const result:MotorcycleData[] = search(sanitizedSearchValue, data,  {keySelector: (m: MotorcycleData) => `${m.make} ${m.model} ${m.year}`});
+    setFiltered(result);
   }, [data, searchValue]);
 
   useEffect(() => {
