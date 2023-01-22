@@ -11,6 +11,7 @@ export const useLoadDataFromApi = () => {
     "Beta",
     "Bimota",
     "BMW",
+    "CF Moto",
     "Cobra",
     "Ducati",
     "Gas Gas",
