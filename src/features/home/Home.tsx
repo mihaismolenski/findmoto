@@ -85,7 +85,7 @@ export const Home = ({ data, types }: MotorcycleDataProps) => {
   return (
     <div className="home">
       <SEO
-        title="Find the best motorcycle for you - FindYourMotorcycle"
+        title="Find the perfect motorcycle for you - FindYourMotorcycle"
         description="Do you want to buy your first bike, but not sure which one to get? Are you an experience biker, but want to try something new? We can help you, by suggesting different motorcycles based on your needs!"
       />
       <div className="home-center">
