@@ -63,7 +63,7 @@ export const Compare = ({ data }: MotorcycleDataProps) => {
             })}
           </div>
         )}
-        <Button text="Compare" handleClick={compare} />
+        <Button text="Compare motorcycles" handleClick={compare} />
       </div>
       {compareItems.length >= 2 && (
         <div className="compare-table-overflow">

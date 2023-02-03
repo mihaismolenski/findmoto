@@ -49,7 +49,7 @@ export const Search = ({ data }: MotorcycleDataProps) => {
           handleChange={(value: string) => setSearchValue(value)}
           placeholder="Yamaha R6..."
         />
-        <Button text="Find moto" handleClick={findMoto} />
+        <Button text="Find any motorcycle" handleClick={findMoto} />
       </div>
       <div className="search-results">
         {filtered.slice(0, 30).map((m, index) => {
