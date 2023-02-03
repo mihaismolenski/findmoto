@@ -6,7 +6,9 @@ import Input from "../../components/Input";
 import MotoCard from "../../components/MotoCard";
 import MotoDetails from "../../components/MotoDetails";
 import { MotorcycleData } from "../../types/motorcycle-data";
-const {search} = require("fast-fuzzy");
+import SEO from "../../components/SEO";
+
+const { search } = require("fast-fuzzy");
 
 export const Search = ({ data }: MotorcycleDataProps) => {
   const [searchValue, setSearchValue] = useState("");
@@ -19,7 +21,9 @@ export const Search = ({ data }: MotorcycleDataProps) => {
     const sanitizedSearchValue = searchValue.trim().toLowerCase();
     if (!sanitizedSearchValue) return;
 
-    const result:MotorcycleData[] = search(sanitizedSearchValue, data,  {keySelector: (m: MotorcycleData) => `${m.make} ${m.model} ${m.year}`});
+    const result: MotorcycleData[] = search(sanitizedSearchValue, data, {
+      keySelector: (m: MotorcycleData) => `${m.make} ${m.model} ${m.year}`,
+    });
     setFiltered(result);
   }, [data, searchValue]);
 
@@ -35,6 +39,10 @@ export const Search = ({ data }: MotorcycleDataProps) => {
 
   return (
     <div className="search">
+      <SEO
+        title="Search for any motorcycle - FindYourMotorcycle"
+        description="Do you need more details about a certain type of motorcycle? You can search it right here, right now!"
+      />
       <div className="search-form">
         <Input
           value={searchValue}

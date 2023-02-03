@@ -6,6 +6,7 @@ export const Input = ({
   onBlur,
   onFocus,
   type = "text",
+  disabled = false,
 }: {
   width?: string;
   value: string;
@@ -14,6 +15,7 @@ export const Input = ({
   onBlur?: Function;
   onFocus?: Function;
   type?: string;
+  disabled?: boolean;
 }) => {
   return (
     <div className="input">
@@ -25,6 +27,7 @@ export const Input = ({
         placeholder={placeholder}
         onBlur={() => onBlur && onBlur()}
         onFocus={() => onFocus && onFocus()}
+        disabled={disabled}
       />
     </div>
   );

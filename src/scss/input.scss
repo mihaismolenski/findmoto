@@ -18,5 +18,9 @@
         &:focus {
             border: 1px solid $dark-blue;
         }
+
+        &[disabled] {
+            background-color: $light-grey;
+        }
     }
 }

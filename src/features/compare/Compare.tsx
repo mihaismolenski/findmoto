@@ -5,6 +5,7 @@ import SearchInput from "../../components/SearchInput";
 import { MotorcycleData } from "../../types/motorcycle-data";
 import { getTypeName } from "../../utils/utils";
 import CompareRow from "./CompareRow";
+import SEO from "../../components/SEO";
 
 export const Compare = ({ data }: MotorcycleDataProps) => {
   const [selected, setSelected] = useState<MotorcycleData[]>([]);
@@ -34,12 +35,17 @@ export const Compare = ({ data }: MotorcycleDataProps) => {
 
   return (
     <div className="compare">
+      <SEO
+        title="Compare different bikes - FindYourMotorcycle"
+        description="Compare specifications for different motorcycles. You can select between two and up to five motorcycles."
+      />
       <div className="compare-form">
         <SearchInput
           initialData={data}
           onSelectionChange={(m: MotorcycleData) =>
             setSelected([...selected, m])
           }
+          disabled={selected.length >= 5}
         />
         {selected.length > 0 && (
           <div className="compare-form-selected">

@@ -1,14 +1,20 @@
 import { Link } from "react-router-dom";
+import SEO from "../../components/SEO";
 
 export const PrivacyPolicy = () => {
   return (
     <div className="privacy-policy">
+      <SEO
+        title="Privacy Policy - FindYourMotorcycle"
+        description="Important information about FindYourMotorcycle Privacy Policy. Please read it and get acquainted with all the legal details.  For any questions, please contact us."
+      />
       <div className="privacy-policy-title">
         <b>/FindYourMotorcycle/</b> Privacy Policy
       </div>
       <div className="privacy-policy-last-updated">
         Last updated on 1/18/2023
       </div>
+      x
       <p>
         At <b>FindYourMotorcycle</b>, accessible at{" "}
         <Link to="/" target="_blank">

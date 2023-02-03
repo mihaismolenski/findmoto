@@ -6,9 +6,11 @@ import Input from "./Input";
 export const SearchInput = ({
   initialData,
   onSelectionChange,
+  disabled,
 }: {
   initialData: MotorcycleData[];
   onSelectionChange: Function;
+  disabled: boolean;
 }) => {
   const [searchValue, setSearchValue] = useState("");
   const [showResults, setShowResults] = useState(false);
@@ -48,7 +50,11 @@ export const SearchInput = ({
 
   const selectMoto = (m: MotorcycleData) => {
     onSelectionChange(m);
-    setData(data.filter(x => x.model !== m.model || x.make !== m.make || x.year !== m.year ));
+    setData(
+      data.filter(
+        (x) => x.model !== m.model || x.make !== m.make || x.year !== m.year
+      )
+    );
     setShowResults(false);
     setSearchValue("");
     setFiltered([]);
@@ -61,22 +67,26 @@ export const SearchInput = ({
         handleChange={filterData}
         placeholder="Kawasaki Versys..."
         onFocus={() => setShowResults(true)}
+        disabled={disabled}
       />
-      {showResults && searchValue && searchValue.length >= 2 && filtered.length > 0 && (
-        <div className="search-input-results">
-          {filtered.map((f, index) => {
-            return (
-              <div
-                className="search-input-results-row"
-                key={index}
-                onClick={() => selectMoto(f)}
-              >
-                {f.make} {f.model} {f.year}
-              </div>
-            );
-          })}
-        </div>
-      )}
+      {showResults &&
+        searchValue &&
+        searchValue.length >= 2 &&
+        filtered.length > 0 && (
+          <div className="search-input-results">
+            {filtered.map((f, index) => {
+              return (
+                <div
+                  className="search-input-results-row"
+                  key={index}
+                  onClick={() => selectMoto(f)}
+                >
+                  {f.make} {f.model} {f.year}
+                </div>
+              );
+            })}
+          </div>
+        )}
     </div>
   );
 };

@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom";
+import SEO from "../../components/SEO";
 
 export const Terms = () => {
   return (
     <div className="terms">
+      <SEO
+        title="Terms & Conditions - FindYourMotorcycle"
+        description="Important information about FindYourMotorcycle Terms & Conditions. Please read it and get acquainted with all the details. For any questions, please contact us."
+      />
       <div className="terms-title">
-        <b>/FindYourMotorcycle/</b> Terms of Use
+        <b>/FindYourMotorcycle/</b> Terms & Conditions
       </div>
       <div className="last-updated">Last updated on 1/18/2023</div>
       <h2>1. Agreement to Terms</h2>
