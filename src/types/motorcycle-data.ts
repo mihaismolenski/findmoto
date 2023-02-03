@@ -38,4 +38,5 @@ export interface MotorcycleData {
     starter: string;
     fuel_consumption: string;
     emission: string;
+    top_speed: string;
 }
