@@ -2,7 +2,7 @@ import { MotorcycleData } from "../types/motorcycle-data";
 import { getTypeName } from "../utils/utils";
 import Button from "./Button";
 import Images from "./Images";
-import { YoutubeVideos } from "./YoutubeVideos";
+import YoutubeVideos from "./YoutubeVideos";
 
 export interface MotoDetailsProps {
     data: MotorcycleData;
