@@ -31,10 +31,19 @@
             color: $white;
             font-weight: $font-weight-semibold;
             text-decoration: none;
-            
+
             &:hover {
                 color: $light-blue;
             }
+        }
+    }
+
+    ul > li > a {
+        text-decoration: none;
+        color: $white;
+
+        &:hover {
+            color: $light-blue;
         }
     }
 }

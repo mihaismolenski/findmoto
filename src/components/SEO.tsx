@@ -10,6 +10,7 @@ export const SEO = ({ title, description }: SeoProps) => {
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
+      <meta name="author" content="FindYourMotorcycle dev team" />
     </Helmet>
   );
 };

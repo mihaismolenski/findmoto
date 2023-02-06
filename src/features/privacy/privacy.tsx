@@ -138,9 +138,17 @@ export const PrivacyPolicy = () => {
         practices of this Website, we encourage you to contact us at:
       </div>
       <ul>
-        <li> FindYourMotorcycle Iasi, Romania</li>
-        <li>+40-756-627-907</li>
-        <li> info@findyourmotorcycle.com</li>
+        <li>
+          <address>FindYourMotorcycle Iasi, Romania</address>
+        </li>
+        <li>
+          <a href="tel:+40756627907"> +40-756-627-907</a>
+        </li>
+        <li>
+          <a href="mailto:info@findyourmotorcycle.com">
+            info@findyourmotorcycle.com
+          </a>
+        </li>
       </ul>
     </div>
   );
