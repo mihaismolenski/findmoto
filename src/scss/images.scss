@@ -6,6 +6,7 @@
     img {
         box-sizing: border-box;
         border-radius: 4px;
+        cursor: pointer;
     }
 
     @media screen and (max-width: $screen-mobile) {
@@ -15,6 +16,40 @@
         img {
             width: 100%;
             height: auto;
+        }
+    }
+
+    .image-background {
+        width: auto;
+        position: fixed;
+        background: rgba(0, 0, 0, 0.3);
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 99;
+
+        .image-wrapper {
+            z-index: 100;
+            position: fixed;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+            img {
+                position: relative;
+                box-sizing: border-box;
+                z-index: 100;
+                max-width: calc(100vw - 1.5rem);
+                background: $white;
+                border-radius: 4px;
+                box-shadow: 0 0.1875rem 1.875rem #00000080;
+                overflow-y: auto;
+                max-height: calc(100vh - 5rem);
+            }
         }
     }
 }
