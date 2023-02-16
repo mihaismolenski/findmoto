@@ -3,7 +3,7 @@ import { MotorcycleDataProps } from "../../App";
 import Button from "../../components/Button";
 import SearchInput from "../../components/SearchInput";
 import { MotorcycleData } from "../../types/motorcycle-data";
-import { getTypeName } from "../../utils/utils";
+import { getLogo, getTypeName } from "../../utils/utils";
 import CompareRow from "./CompareRow";
 import SEO from "../../components/SEO";
 
@@ -71,9 +71,14 @@ export const Compare = ({ data }: MotorcycleDataProps) => {
             <thead>
               <CompareRow
                 label=" "
-                values={compareItems.map(
-                  (m) => `${m.make} ${m.model} ${m.year}`
-                )}
+                values={compareItems.map((m) => (
+                  <div className="compare-header-item">
+                    <div>
+                      {m.make} {m.model} {m.year}
+                    </div>
+                    <img alt="manufacturer" src={getLogo(m.make)} />
+                  </div>
+                ))}
               />
             </thead>
             <tbody>

@@ -58,6 +58,7 @@ export const getLogo = (manufacturer: string) => {
     case "Harley-Davidson":
       return "../images/manufacturers/harley.webp";
     case "Hero":
+    case "Hero Honda":
       return "../images/manufacturers/hero.webp";
     case "Honda":
       return "../images/manufacturers/honda.png";

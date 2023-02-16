@@ -1,6 +1,6 @@
 export interface CompareRowProps {
   label?: string;
-  values: string[];
+  values: (string | JSX.Element)[];
   icon?: string;
 }
 

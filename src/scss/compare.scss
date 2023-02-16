@@ -93,6 +93,20 @@
             }
         }
 
+        .compare-header-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+
+            img {
+                width: auto;
+                max-width: 100px;
+                height: auto;
+                max-height: 30px;
+            }
+        }
+
         tr {
             td {
                 &:first-child {
