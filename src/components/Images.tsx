@@ -45,6 +45,20 @@ export const Images = ({ search, count }: ImagesProps) => {
     setShowImage(true);
   };
 
+  /*  useEffect(() => {
+    setImages([]);
+    const url = `https://api.shutterstock.com/v2/images/search?query=${search}`;
+    fetch(url, {
+      headers: {
+        Authentication: `Basic WVpSjZFQzRtSURkNG8wYnJZRE5BcHh6VUZDSnFWYWY6WHFoYmdTTlZ0TGpmT1AwRA==`,
+      },
+    })
+      .then((response) => response.json())
+      .then((response: GoogleSearchApiResponse) => {
+        console.log(response);
+      });
+  }, [search, count]);*/
+
   useEffect(() => {
     setImages([]);
     const url = `https://www.googleapis.com/customsearch/v1?key=AIzaSyBqLE1FahERvruoWOvZgGIX-e0w5I-dA9U&cx=5299f5c9a1ea1470b&q=${search} photos`;
