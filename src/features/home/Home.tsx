@@ -1,14 +1,17 @@
 import { useCallback, useEffect, useState } from "react";
+
 import { MotorcycleDataProps } from "../../App";
-import AsideModal from "../../components/AsideModal";
-import Button from "../../components/Button";
-import DoubleSlider from "../../components/DoubleSlider";
-import MotoCard from "../../components/MotoCard";
-import MotoDetails from "../../components/MotoDetails";
-import Type from "../../components/Type";
 import { MotorcycleData } from "../../types/motorcycle-data";
 import { shuffle } from "../../utils/utils";
-import SEO from "../../components/SEO";
+import {
+  AsideModal,
+  Button,
+  DoubleSlider,
+  MotoCard,
+  MotoDetails,
+  SEO,
+  Type,
+} from "../../components";
 
 export const Home = ({ data, types }: MotorcycleDataProps) => {
   const [selectedTypes, setSelectedTypes] = useState<string[]>([]);

@@ -1,11 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
+
 import { MotorcycleDataProps } from "../../App";
-import Button from "../../components/Button";
-import SearchInput from "../../components/SearchInput";
 import { MotorcycleData } from "../../types/motorcycle-data";
 import { getLogo, getTypeName } from "../../utils/utils";
 import CompareRow from "./CompareRow";
-import SEO from "../../components/SEO";
+import { Button, SearchInput, SEO } from "../../components";
 
 export const Compare = ({ data }: MotorcycleDataProps) => {
   const [selected, setSelected] = useState<MotorcycleData[]>([]);

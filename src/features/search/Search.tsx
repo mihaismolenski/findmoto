@@ -1,12 +1,15 @@
 import { useCallback, useEffect, useState } from "react";
+
 import { MotorcycleDataProps } from "../../App";
-import AsideModal from "../../components/AsideModal";
-import Button from "../../components/Button";
-import Input from "../../components/Input";
-import MotoCard from "../../components/MotoCard";
-import MotoDetails from "../../components/MotoDetails";
 import { MotorcycleData } from "../../types/motorcycle-data";
-import SEO from "../../components/SEO";
+import {
+  AsideModal,
+  Button,
+  Input,
+  MotoCard,
+  MotoDetails,
+  SEO,
+} from "../../components";
 
 const { search } = require("fast-fuzzy");
 
