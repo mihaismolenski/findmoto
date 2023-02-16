@@ -1,10 +1,11 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 
 import { MotorcycleDataProps } from "../../App";
 import { MotorcycleData } from "../../types/motorcycle-data";
 import { getLogo, getTypeName } from "../../utils/utils";
 import CompareRow from "./CompareRow";
 import { Button, SearchInput, SEO } from "../../components";
+import { useHandleEnterKey } from "../../hooks/useHandleEnterKey";
 
 export const Compare = ({ data }: MotorcycleDataProps) => {
   const [selected, setSelected] = useState<MotorcycleData[]>([]);
@@ -22,15 +23,7 @@ export const Compare = ({ data }: MotorcycleDataProps) => {
     );
   };
 
-  useEffect(() => {
-    const handleEnterKeyPress = (e: KeyboardEvent) => {
-      if (e.key === "Enter") {
-        compare();
-      }
-    };
-    window.addEventListener("keypress", handleEnterKeyPress);
-    return () => window.removeEventListener("keypress", handleEnterKeyPress);
-  }, [compare]);
+  useHandleEnterKey(compare);
 
   return (
     <div className="compare">

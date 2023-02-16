@@ -1,4 +1,5 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
+import { search } from "fast-fuzzy";
 
 import { MotorcycleDataProps } from "../../App";
 import { MotorcycleData } from "../../types/motorcycle-data";
@@ -10,8 +11,7 @@ import {
   MotoDetails,
   SEO,
 } from "../../components";
-
-const { search } = require("fast-fuzzy");
+import { useHandleEnterKey } from "../../hooks/useHandleEnterKey";
 
 export const Search = ({ data }: MotorcycleDataProps) => {
   const [searchValue, setSearchValue] = useState("");
@@ -30,15 +30,7 @@ export const Search = ({ data }: MotorcycleDataProps) => {
     setFiltered(result);
   }, [data, searchValue]);
 
-  useEffect(() => {
-    const handleEnterKeyPress = (e: KeyboardEvent) => {
-      if (e.key === "Enter") {
-        findMoto();
-      }
-    };
-    window.addEventListener("keypress", handleEnterKeyPress);
-    return () => window.removeEventListener("keypress", handleEnterKeyPress);
-  }, [findMoto]);
+  useHandleEnterKey(findMoto);
 
   return (
     <div className="search">

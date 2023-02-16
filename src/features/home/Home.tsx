@@ -1,8 +1,8 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 
 import { MotorcycleDataProps } from "../../App";
 import { MotorcycleData } from "../../types/motorcycle-data";
-import { shuffle } from "../../utils/utils";
+import { getCcForMoto, getPowerForMoto, shuffle } from "../../utils/utils";
 import {
   AsideModal,
   Button,
@@ -12,6 +12,7 @@ import {
   SEO,
   Type,
 } from "../../components";
+import { useHandleEnterKey } from "../../hooks/useHandleEnterKey";
 
 export const Home = ({ data, types }: MotorcycleDataProps) => {
   const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
@@ -41,14 +42,6 @@ export const Home = ({ data, types }: MotorcycleDataProps) => {
     setSelectedTypes(copy);
   };
 
-  const getCcForMoto = (displacement: string): number => {
-    return displacement ? Number(displacement.split("ccm")[0].trim()) : 0;
-  };
-
-  const getPowerForMoto = (power: string): number => {
-    return power ? Number(power.split("HP")[0].trim()) : 0;
-  };
-
   const search = useCallback(() => {
     let r: MotorcycleData[] = shuffle([...data]);
 
@@ -75,15 +68,7 @@ export const Home = ({ data, types }: MotorcycleDataProps) => {
     setResults(r);
   }, [cc, power, data, selectedTypes, years]);
 
-  useEffect(() => {
-    const handleEnterKeyPress = (e: KeyboardEvent) => {
-      if (e.key === "Enter") {
-        search();
-      }
-    };
-    window.addEventListener("keypress", handleEnterKeyPress);
-    return () => window.removeEventListener("keypress", handleEnterKeyPress);
-  }, [search]);
+  useHandleEnterKey(search);
 
   return (
     <div className="home">

@@ -13,6 +13,14 @@ export const getTypeName = (type: string) => {
   }
 };
 
+export const getCcForMoto = (displacement: string): number => {
+  return displacement ? Number(displacement.split("ccm")[0].trim()) : 0;
+};
+
+export const getPowerForMoto = (power: string): number => {
+  return power ? Number(power.split("HP")[0].trim()) : 0;
+};
+
 export const shuffle = (array: MotorcycleData[]) => {
   let currentIndex = array.length,
     randomIndex;
