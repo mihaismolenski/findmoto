@@ -1,18 +1,17 @@
-import React from "react";
 import { render, RenderResult } from "@testing-library/react";
-
-import App from "./App";
-import { useResizeObserverMock } from "./hooks/useResizeObserverMock";
+import Home from "./Home";
+import { useResizeObserverMock } from "../../hooks/useResizeObserverMock";
 
 describe("Home component tests", () => {
   let component: RenderResult;
+
   useResizeObserverMock();
 
   beforeEach(() => {
-    component = render(<App />);
+    component = render(<Home data={[]} types={[]} />);
   });
 
-  it("renders learn react link", () => {
+  it("should render component", () => {
     expect(component).toBeTruthy();
   });
 });

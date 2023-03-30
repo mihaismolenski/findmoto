@@ -37,7 +37,7 @@ export const useLoadDataFromApi = () => {
 
   const loadData = async () => {
     let data: MotorcycleData[] = [];
-    for (var index = 0; index < makes.length; index++) {
+    for (let index = 0; index < makes.length; index++) {
       let offset = 0;
       let pageData: MotorcycleData[] = [];
 
