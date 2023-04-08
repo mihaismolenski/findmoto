@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Home from './features/home/Home';
 import Admin from './features/admin/Admin';
 import Header from './features/header/Header';
@@ -31,6 +31,7 @@ export const App = () => {
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="*" element={<Navigate replace to="/" />} />
         </Routes>
         <Footer />
       </BrowserRouter>
