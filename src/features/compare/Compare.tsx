@@ -1,13 +1,12 @@
 import { useCallback, useState } from "react";
 
-import { MotorcycleDataProps } from "../../App";
 import { MotorcycleData } from "../../types/motorcycle-data";
 import { getLogo, getTypeName } from "../../utils/utils";
 import CompareRow from "./CompareRow";
 import { Button, SearchInput, SEO } from "../../components";
 import { useHandleEnterKey } from "../../hooks/useHandleEnterKey";
 
-export const Compare = ({ data }: MotorcycleDataProps) => {
+export const Compare = () => {
   const [selected, setSelected] = useState<MotorcycleData[]>([]);
   const [compareItems, setCompareItems] = useState<MotorcycleData[]>([]);
 
@@ -33,7 +32,6 @@ export const Compare = ({ data }: MotorcycleDataProps) => {
       />
       <div className="compare-form">
         <SearchInput
-          initialData={data}
           onSelectionChange={(m: MotorcycleData) =>
             setSelected([...selected, m])
           }

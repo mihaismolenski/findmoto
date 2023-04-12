@@ -1,7 +1,5 @@
 import { useCallback, useState } from "react";
-import { search } from "fast-fuzzy";
 
-import { MotorcycleDataProps } from "../../App";
 import { MotorcycleData } from "../../types/motorcycle-data";
 import {
   AsideModal,
@@ -12,23 +10,23 @@ import {
   SEO,
 } from "../../components";
 import { useHandleEnterKey } from "../../hooks/useHandleEnterKey";
+import { fetchSearchMotos } from "../../api/search.api";
 
-export const Search = ({ data }: MotorcycleDataProps) => {
+export const Search = () => {
   const [searchValue, setSearchValue] = useState("");
   const [filtered, setFiltered] = useState<MotorcycleData[]>([]);
 
   const [showMotoDetails, setShowMotoDetails] = useState(false);
   const [selectedMoto, setSelectedMoto] = useState<MotorcycleData>();
 
-  const findMoto = useCallback(() => {
+  const findMoto = useCallback(async () => {
     const sanitizedSearchValue = searchValue.trim().toLowerCase();
     if (!sanitizedSearchValue) return;
 
-    const result: MotorcycleData[] = search(sanitizedSearchValue, data, {
-      keySelector: (m: MotorcycleData) => `${m.make} ${m.model} ${m.year}`,
-    });
+    const result = await fetchSearchMotos(sanitizedSearchValue);
+
     setFiltered(result);
-  }, [data, searchValue]);
+  }, [ searchValue]);
 
   useHandleEnterKey(findMoto);
 

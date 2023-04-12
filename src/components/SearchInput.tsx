@@ -1,60 +1,36 @@
-import { useEffect, useRef, useState } from "react";
+import {  useRef, useState } from "react";
 import { useHandleClickOutside } from "../hooks/useHandleClickOutside";
 import { MotorcycleData } from "../types/motorcycle-data";
 import Input from "./Input";
+import { fetchFilterMotos } from "../api/search.api";
 
 export const SearchInput = ({
-  initialData,
   onSelectionChange,
   disabled,
 }: {
-  initialData: MotorcycleData[];
   onSelectionChange: Function;
   disabled: boolean;
 }) => {
   const [searchValue, setSearchValue] = useState("");
   const [showResults, setShowResults] = useState(false);
   const [filtered, setFiltered] = useState<MotorcycleData[]>([]);
-  const [data, setData] = useState<MotorcycleData[]>(initialData);
   const ref = useRef(null);
-
-  useEffect(() => {
-    setData(initialData);
-  }, [initialData]);
 
   useHandleClickOutside(ref, () => setShowResults(false));
 
-  const filterData = (value: string) => {
+  const filterData = async (value: string) => {
     setSearchValue(value);
 
     const sanitizedSearchValue = value.trim().toLowerCase();
     if (!sanitizedSearchValue) return;
 
-    setFiltered(
-      (
-        data.filter(
-          (m) =>
-            (sanitizedSearchValue.includes(m.make.trim().toLowerCase()) &&
-              sanitizedSearchValue.includes(m.model.trim().toLowerCase())) ||
-            m.model.trim().toLowerCase().includes(sanitizedSearchValue) ||
-            `${m.make.trim().toLowerCase()} ${m.model
-              .trim()
-              .toLowerCase()}`.includes(sanitizedSearchValue) ||
-            `${m.model.trim().toLowerCase()} ${m.make
-              .trim()
-              .toLowerCase()}`.includes(sanitizedSearchValue)
-        ) || []
-      ).slice(0, 200)
-    );
+    const result = await fetchFilterMotos(sanitizedSearchValue);
+    setFiltered(result);
   };
 
   const selectMoto = (m: MotorcycleData) => {
     onSelectionChange(m);
-    setData(
-      data.filter(
-        (x) => x.model !== m.model || x.make !== m.make || x.year !== m.year
-      )
-    );
+
     setShowResults(false);
     setSearchValue("");
     setFiltered([]);

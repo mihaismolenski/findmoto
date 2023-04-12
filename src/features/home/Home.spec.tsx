@@ -8,7 +8,7 @@ describe("Home component tests", () => {
   useResizeObserverMock();
 
   beforeEach(() => {
-    component = render(<Home data={[]} types={[]} />);
+    component = render(<Home types={[]} />);
   });
 
   it("should render component", () => {

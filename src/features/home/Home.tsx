@@ -1,8 +1,6 @@
 import { useCallback, useState } from "react";
 
-import { MotorcycleDataProps } from "../../App";
 import { MotorcycleData } from "../../types/motorcycle-data";
-import { getCcForMoto, getPowerForMoto, shuffle } from "../../utils/utils";
 import {
   AsideModal,
   Button,
@@ -13,8 +11,9 @@ import {
   Type,
 } from "../../components";
 import { useHandleEnterKey } from "../../hooks/useHandleEnterKey";
+import { fetchSuggestMotos } from "../../api/search.api";
 
-export const Home = ({ data, types }: MotorcycleDataProps) => {
+export const Home = ({ types }: {types: string[]}) => {
   const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
   const [results, setResults] = useState<MotorcycleData[]>([]);
   const [cc, setCc] = useState<number[]>([400, 800]);
@@ -42,31 +41,10 @@ export const Home = ({ data, types }: MotorcycleDataProps) => {
     setSelectedTypes(copy);
   };
 
-  const search = useCallback(() => {
-    let r: MotorcycleData[] = shuffle([...data]);
-
-    if (selectedTypes.length > 0) {
-      r = r.filter(
-        (moto) => selectedTypes.findIndex((t: string) => t === moto.type) >= 0
-      );
-    }
-    r = r.filter(
-      (moto) =>
-        getCcForMoto(moto.displacement) >= cc[0] &&
-        getCcForMoto(moto.displacement) <= cc[1]
-    );
-    r = r.filter(
-      (moto) =>
-        (getPowerForMoto(moto.power) >= power[0] &&
-          getPowerForMoto(moto.power) <= power[1]) ||
-        !moto.power
-    );
-    r = r.filter(
-      (moto) => Number(moto.year) >= years[0] && Number(moto.year) <= years[1]
-    );
-
+  const search = useCallback(async () => {
+    const r = await fetchSuggestMotos(selectedTypes, cc, power, years);
     setResults(r);
-  }, [cc, power, data, selectedTypes, years]);
+  }, [cc, power, selectedTypes, years]);
 
   useHandleEnterKey(search);
 
