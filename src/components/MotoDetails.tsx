@@ -64,7 +64,7 @@ export const MotoDetails = ({ data, handleClose }: MotoDetailsProps) => {
     };
 
     navigate(pathname);
-  }, [pathname, navigate]);
+  }, [pathname, navigate, handleClose]);
 
   return (
     <div className="moto-details">
