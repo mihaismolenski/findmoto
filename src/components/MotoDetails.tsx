@@ -6,6 +6,7 @@ import { getTypeName } from "../utils/utils";
 import Button from "./Button";
 import Images from "./Images";
 import YoutubeVideos from "./YoutubeVideos";
+import Prices from "./Prices";
 
 export interface MotoDetailsProps {
   data: MotorcycleData;
@@ -511,6 +512,11 @@ export const MotoDetails = ({ data, handleClose }: MotoDetailsProps) => {
       <fieldset className="moto-details-box">
         <legend className="moto-details-label">Video Reviews</legend>
         <YoutubeVideos search={`${make} ${model} ${year}`} count={2} />
+      </fieldset>
+
+      <fieldset className="moto-details-box">
+        <legend className="moto-details-label">Price</legend>
+        <Prices make={make} model={model} year={year} />
       </fieldset>
     </div>
   );

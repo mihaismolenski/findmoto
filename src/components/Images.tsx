@@ -34,6 +34,12 @@ export const Images = ({ search, count }: ImagesProps) => {
       "www.scottsonline.com",
       "logo",
       "no_bike_m",
+      "jackets",
+      "autoevolution",
+      "harley-davidson",
+      "nophoto",
+      "motorcycle.com",
+      "suzukicycles",
     ],
     []
   );
