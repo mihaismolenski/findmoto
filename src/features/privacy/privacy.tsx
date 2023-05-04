@@ -14,7 +14,6 @@ export const PrivacyPolicy = () => {
       <div className="privacy-policy-last-updated">
         Last updated on 1/18/2023
       </div>
-      x
       <p>
         At <b>FindYourMotorcycle</b>, accessible at{" "}
         <Link to="/" target="_blank">

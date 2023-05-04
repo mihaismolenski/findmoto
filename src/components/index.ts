@@ -10,3 +10,4 @@ export * from "./SearchInput";
 export * from "./SEO";
 export * from "./Type";
 export * from "./YoutubeVideos";
+export * from "./Textarea";
