@@ -6,10 +6,18 @@ import { sendEmail } from "../../api/search.api";
 export const ContactUs = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [emailSent, setEmailSent] = useState(false);
 
   const sendMessage = async () => {
-    const result = await sendEmail(email, message);
-    console.log(result);
+    setLoading(true);
+    sendEmail(email, message)
+      .then(() => setEmailSent(true))
+      .finally(() => {
+        setMessage("");
+        setEmail("");
+        setLoading(false);
+      });
   };
 
   return (
@@ -34,8 +42,12 @@ export const ContactUs = () => {
             placeholder="Message"
             handleChange={(val: string) => setMessage(val)}
           />
-          <Button text="Send message" handleClick={sendMessage} />
+          <Button
+            text={loading ? "Sending" : "Send message"}
+            handleClick={sendMessage}
+          />
         </div>
+        {emailSent && <div className="contact-us-email-sent">Message sent! Thank you!</div>}
         <div className="contact-us-text">or contact us directly at:</div>
         <div className="contact-us-links">
           <a

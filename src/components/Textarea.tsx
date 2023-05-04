@@ -16,6 +16,7 @@ export const Textarea = ({
         value={value}
         onChange={(e) => handleChange(e.target.value)}
         placeholder={placeholder}
+        maxLength={1000}
       />
     </div>
   );
