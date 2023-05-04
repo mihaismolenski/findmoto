@@ -1,13 +1,15 @@
 import { useState } from "react";
 
 import { Button, SEO, Input, Textarea } from "../../components";
+import { sendEmail } from "../../api/search.api";
 
 export const ContactUs = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  const sendMessage = () => {
-    console.log(message);
+  const sendMessage = async () => {
+    const result = await sendEmail(email, message);
+    console.log(result);
   };
 
   return (
