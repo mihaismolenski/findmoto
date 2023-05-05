@@ -3,11 +3,12 @@ import { getLogo, getTypeName } from "../utils/utils";
 
 export const MotoCard = ({ data, handleClick }: { data: MotorcycleData, handleClick?: Function }) => {
     const { make, model, type, year, displacement, power, torque, engine } = data;
+    const logo = getLogo(make);
 
     return (
         <div className="moto-card" onClick={() => handleClick && handleClick()}>
-            <div className="moto-card-title">{make} {model} 
-            <img alt="manufacturer" src={getLogo(make)} />
+            <div className="moto-card-title">{make} {model}
+                { logo && <img alt="manufacturer" src={getLogo(make)} /> }
             </div>
             <div className="moto-card-type"><img src="../images/motorbike.png" width="24px" height="24px" alt="engine" /> {getTypeName(type)}</div>
             <div className="moto-card-year"><img src="../images/calendar.png" width="24px" height="24px" alt="calendar" /> {year}</div>

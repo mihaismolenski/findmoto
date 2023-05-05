@@ -43,10 +43,18 @@ export const shuffle = (array: MotorcycleData[]) => {
 
 export const getLogo = (manufacturer: string) => {
   switch (manufacturer) {
+    case "Aeon":
+      return "../images/manufacturers/aeon.png";
+    case "American IronHorse":
+      return "../images/manufacturers/american_ironhorse.png";
     case "Aprilia":
       return "../images/manufacturers/aprilia.png";
+    case "Arctic":
+      return "../images/manufacturers/arctic.webp";
     case "Bajaj":
       return "../images/manufacturers/bajaj.webp";
+    case "Baotian":
+      return "../images/manufacturers/baotian.png";
     case "Benelli":
       return "../images/manufacturers/benelli.png";
     case "Beta":
@@ -140,6 +148,6 @@ export const getLogo = (manufacturer: string) => {
     case "Zongshen":
       return "../images/manufacturers/zongshen.png";
     default:
-      return "-";
+      return "";
   }
 };
